@@ -3,7 +3,8 @@ from . import views
 
 
 urlpatterns=[
-    path("", views.Todo.as_view()),
-    path('/get',views.get_api),
-    path('/post', views.post_api)
+    path('', views.index),
+    path('todo',views.get_api),
+    path('todo/', views.post_api),
+    path('todo/<int:id>/', views.sum_api),
 ]
