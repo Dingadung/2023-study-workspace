@@ -1,5 +1,5 @@
 from .models import House
-# from rest_framework.views import APIView
+from rest_framework.views import APIView
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .serializers import HouseSerializer
@@ -10,13 +10,6 @@ from rest_framework import status
 from django.http import Http404
 
 from django.shortcuts import get_object_or_404
-
-
-# class Houses(APIView):
-#     def get(self, request):
-#         all_houses = House.objects.all()
-#         serializer = HouseSerializer(all_houses, many=True)
-#         return Response(serializer.data)
 
 def getPk(md, pk):
     primaryKey = md.objects.get(pk = pk)
@@ -44,3 +37,5 @@ def house(request, pk):
         return Response(status=status.HTTP_404_NOT_FOUND)
     serializer = HouseSerializer(house)
     return Response(serializer.data)
+
+
